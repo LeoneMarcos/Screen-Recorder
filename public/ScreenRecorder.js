@@ -6,7 +6,8 @@ let recording = false;
 recorderButton.addEventListener("click", async () => {
     if (!recording) {
         const stream = await navigator.mediaDevices.getDisplayMedia({
-            video: { mediaSource: "screen" }
+            video: { mediaSource: "screen" },
+            audio:true
         });
         recorder = new MediaRecorder(stream);
         recorder.ondataavailable = (event) => chunks.push(event.data);

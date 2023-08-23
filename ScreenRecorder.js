@@ -11,11 +11,11 @@ recorderButton.addEventListener("click", async () => {
         recorder = new MediaRecorder(stream);
         recorder.ondataavailable = (event) => chunks.push(event.data);
         recorder.onstop = () => {
-            const blob = new Blob(chunks, { type: "video/webm" });
+            const blob = new Blob(chunks, { type: "video/mp4" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = "recording.webm";
+            a.download = "recordingLM.mp4";
             a.click();
             URL.revokeObjectURL(url);
             chunks = [];
